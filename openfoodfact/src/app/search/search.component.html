@@ -1,0 +1,27 @@
+
+<h1>Search</h1>
+
+<p>
+    <input type="text" #query>
+    <button (click)="submit(query)">Search</button>
+</p>
+
+<div *ngIf="results">
+    <div class="row">
+        <div class="col-sm-6 col-md-4" *ngFor="let t of results.products">
+            <div class="thumbnail" style="border: 1px solid black">
+
+                <div class="content">
+                    <img src="{{t.image_url}}" class="img-fluid" alt="">
+                    <p>{{t.brands}}</p>
+                    <a [routerLink]="['/item', t.id]">
+                        {{ t.id }}
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
